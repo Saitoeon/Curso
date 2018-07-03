@@ -3,20 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Registro</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos/login.css">
+    <link rel="stylesheet" href="estilos/home.css">
+    <link rel="stylesheet" href="estilos/registro.css">
 </head>
 
 <body>
     
-    <div class="container">
+    <div class="container-expanded">
+        <div class="row">
+            <div class="col-sm-10 col-xs-12 col-lg-10 navDiv">
+                <?php include('na+povbar.php'); ?>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="caja">
-                    <a href="index.html"><img src="imgs/red.png" class="redLogo"></a>
-                    <form action="recibe.php" method="post">
+                <div class="registro">
+                    <h1>¡Regístrate!</h1>
+                    <form action="registrar.php" method="post">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre</label>
+                        <input type="text" class="form-control" placeholder="Escriba su nombre(s)" name="nombre">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Apellido paterno</label>
+                        <input type="text" class="form-control" placeholder="Escriba su apellido paterno" name="apellidoPat">
+                      </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" name="email">
@@ -29,6 +43,9 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="row footer">
+            <?php include('footer.php'); ?>
         </div>
     </div>
     <!-- Optional JavaScript -->
