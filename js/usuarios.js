@@ -5,6 +5,9 @@ var usuarios = {};
 * Elementos a manipular del usuario
 * Se capturan los objetos html
 
+
+**/
+
 usuarios.elementos = {
     nombre: $("#name"),
     apellidoPat: $("#apellidoPat"),
@@ -14,7 +17,6 @@ usuarios.elementos = {
 	password : $("#pass"),
 	button : $("#btn-add-user"),
 };
-**/
 
 /**
 * Funcion para agregar un nuevo usuario
@@ -22,19 +24,19 @@ usuarios.elementos = {
 * si edit mode es verdadero, entonces se esta editando
 **/
 usuarios.addUser = function () {
-    //var data  = usuarios.elementos;
-    //var btn   = $("#btn-add-user");
+    var data  = usuarios.elementos;
+    var btn   = $("#btn-add-user");
     var action = "addUsuario";
    // var usuarioId = 0;
     //var forUpdate = false;
 
-   // if ( editMode == true)
-     //   forUpdate = true;
+    /*if ( editMode == true)
+        forUpdate = true;
 
-    //if ( usuarios.validaDatosUsuario(data, forUpdate) ) {
+    if ( usuarios.validaDatosUsuario(data, forUpdate) ) {
 
        
-        /*if ( editMode ) {
+        if ( editMode ) {
             action = "updateUsuario";
            // usuarioId = $("#usuarioId").val();
 
@@ -46,22 +48,21 @@ usuarios.addUser = function () {
 			dataType: "json",
 			data: {
 				// usuarioId : usuarioId,
-                nombre : "asd",//data.nombre.val(),
-                apellidoPat : "iqwdiasc",//data.apellidoPat.val(),
-                apellidoMat : "asdasd",//data.apellidoMat.val(),
-				user : "fulanito",//data.username.val(),
-                email: "fulanito@gmail.com",//data.email.val(),
-				password : "1234",//data.password.val(),
-				//password_confirm : data.password_conf.val(),
+                nombre : data.nombre.val(),
+                apellidoPat : data.apellidoPat.val(),
+                apellidoMat : data.apellidoMat.val(),
+				user : data.username.val(),
+                email: data.email.val(),
+				pass : data.password.val(),
 				action : action
 				},
 			success: function(result){
 				if(result.status == "error"){
-					utilerias.displayErrorServerMessage($("#mensajes-server"),result.message);
+				//	utilerias.displayErrorServerMessage($("#mensajes-server"),result.message);
 				}else {
-					$("#formulario-usuario :input").val('');
-					utilerias.displaySuccessMessage($("#mensajes-server"),result.message);
-					location.reload();
+			//		$("#formulario-usuario :input").val('');
+				//	utilerias.displaySuccessMessage($("#mensajes-server"),result.message);
+			//		location.reload();
 				}
 			}
 		});		
@@ -94,7 +95,6 @@ usuarios.editUser = function(){
 	//ocultamos datos de visualizacion
 	$("#datos-usuario").hide();
 
-	utilerias.removeErrorMessages();
 	
     if(userId >0){
     $.ajax({
@@ -271,44 +271,3 @@ usuarios.mailValido = function(email){
 	}
 	return true;
 };
-
-/**
-function inicio(){
-	$("span.help-block").hide();
-	$("#btnvalidar").click(function(){
-		if(validar()==false)
-			alert("los campos no estan validados");
-		else{
-			alert("los campos estan validados");
-		}
-	});
-	$("#inputIDEventos").keyup(validar);
-}
-
-function validar(){
-	var valor = document.getElementById("inputIDEventos").value;
-	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-		$("#iconotexto").remove();
-		$("#inputIDEventos").parent().parent().attr("class"," has-warning has-feedback");
-		$("#inputIDEventos").parent().children("span").text("Debe ingresar algun caracter").show();
-		$("#inputIDEventos").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-	  	return false;
-	}
-	else if( isNaN(valor) ) {
-		$("#iconotexto").remove();
-		$("#inputIDEventos").parent().parent().attr("class"," has-warning has-feedback");
-		$("#inputIDEventos").parent().children("span").text("Debe ingresar caracteres numericos").show();
-		$("#inputIDEventos").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-		return false;
-	}
-	else{
-		$("#iconotexto").remove();
-		$("#inputIDEventos").parent().parent().attr("class"," has-success has-feedback");
-		$("#inputIDEventos").parent().children("span").text("").hide();
-		$("#inputIDEventos").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-		return true;
-	}
-}
-
-
-**/

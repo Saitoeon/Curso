@@ -2,7 +2,7 @@
             <div class="col-sm-12">
                 <div class="registro">
                     <h1>¡Regístrate!</h1>
-                    <form action="" method="">
+                    <form>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" class="form-control" placeholder="Escriba su nombre(s)" id="name">
@@ -17,18 +17,19 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" id="email">
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" id="email">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Usuario:</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" id="user">
+                        <input type="text" class="form-control"aria-describedby="emailHelp" placeholder="" id="user">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" id="pass">
+                        <input type="password" class="form-control" placeholder="Contraseña" id="pass">
                       </div>
-                      <button type="submit" class="btn btn-primary" id="btn-add-user" onclick="usuarios.addUser();">Entrar</button>
+                      
                     </form>
+                    <button type="submit" class="btn btn-primary" id="btn-add-user" onclick="usuarios.addUser();">Entrar</button>
                 </div>
             </div>
         </div>        

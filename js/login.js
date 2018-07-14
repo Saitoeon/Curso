@@ -8,14 +8,14 @@
         var  user    = $("#login-username"),
              pass    = $("#login-password");
 
-       if(login.validateLogin(user, pass) === true) { 
+       //if(login.validateLogin(user, pass) === true) { 
             var data = {
                 username: user.val(),
                 password: pass.val()
             };
                         
             login.loginUser(data);
-       }
+       //}
 
     });
     $("#login-username").focus();
@@ -37,16 +37,17 @@ login.loginUser = function (data) {
         },
         success: function (result) {           
            if( result.status === 'success' )  
-               window.location.href = result.page;             
+               // window.location.href = result.page;             
            else {
                
-               utilerias.displayErrorMessage($("#errores"), result.message);
+             //  utilerias.displayErrorMessage($("#errores"), result.message);
            }
 
         }
     });
 };
 
+/*
 login.validateLogin = function (un, pass) {
     var valid = true;
     var msg = "";
@@ -67,3 +68,5 @@ login.validateLogin = function (un, pass) {
 
     return valid;
 };
+
+*/

@@ -16,17 +16,15 @@
             <div class="col-sm-12">
                 <div class="caja">
                     <a href="index.html"><img src="assets/img/red.png" class="redLogo"></a>
-                    <form action="recibe.php" method="post">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" name="email">
+                        <input type="email" class="form-control" id="login-username" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" name="email">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="pass">
+                        <input type="password" class="form-control" id="login-password" placeholder="Contraseña" name="pass">
                       </div>
-                      <button type="submit" class="btn btn-primary">Entrar</button>
-                    </form>
+                      <button type="submit" class="btn btn-primary" id="btn-login">Entrar</button>
                 </div>
             </div>
         </div>

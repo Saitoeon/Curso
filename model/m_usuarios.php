@@ -32,7 +32,7 @@ class m_usuarios{
     **/
     public function getUsuarioEmail($email){
         $result = $this->db->select(
-            "SELECT * FROM usuarios WHERE email = :email",
+            "SELECT * FROM cliente WHERE email = :email",
             array("email" => $email));
 
         if($result){
@@ -51,7 +51,7 @@ class m_usuarios{
     
     public function nuevoUsuario($data)
     {             
-        $this->db->insert('usuarios',  array (
+        $this->db->insert('cliente',  array (
             'nombre'         => $data['nombre'], 
             'apellidoPat'    => $data['apellidoPat'],
             'apellidoMat'    => $data['apellidoMat'],

@@ -25,22 +25,22 @@ class UsuariosController {
     
     public function nuevoUsuario($postData){
         $result = array();
-        $errors = false; // $this->validaDatos($postData);
+        //$errors = false; // $this->validaDatos($postData);
 
-        if(count($errors) > 0 ){
+       /* if(count($errors) > 0 ){
             $message = implode("<br>", $errors);
 
             $result = array(
                 "status" => "error",
                 "message" => $message
             );
-        }else{
+        }else{*/
             $this->model->nuevoUsuario($postData);
             $result = array(
                 "status"=> "success",
                 "message" => "Registro exitoso"
             );
-        }
+       // }
         
         return $result;
     }
