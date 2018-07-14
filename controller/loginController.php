@@ -14,12 +14,11 @@ include_once("model/m_login.php");
 		{			
 			if( $this->_isLoggedIn() ):
 							
-				// $usuario = sessionController::get("username");		
-				$titulo = "Panel de administración";
-								
-				//require_once("views/templates/header.php");
-				require_once("views/login.php");
-			    //require_once("views/templates/footer.php");		
+                $usuario = sessionController::get("username");		
+				$titulo = "Panel de administración";				
+				require_once("views/templates/header.php");
+				require_once("views/index.php");
+			    require_once("views/templates/footer.php");		
 
 			else:
 				require_once("views/login.php");
@@ -30,8 +29,9 @@ include_once("model/m_login.php");
 		public function login($username, $password)
 		{			
 
-			$errors = $this->_validateLoginFields($username, $password);
-	        if(count($errors) != 0) {
+			/*
+            $errors = $this->_validateLoginFields($username, $password);
+	        //if(count($errors) != 0) {
 	            $result = implode("<br />", $errors);
 	            echo json_encode(array(
 	                'status' => 'error',
@@ -42,15 +42,22 @@ include_once("model/m_login.php");
 	        $logged=false;
 	        
 	        //revisamos credenciales en bd
-	        $valida=$this->model->valida($username, $password);
+	        */
+            $valida=$this->model->valida($username, $password);
 	       	   
 	        if(count($valida) == 1) 
 	        {	 
-		            sessionController::set("usuarioId", $valida[0]['id_usuario']);	            
+		            sessionController::set("usuarioId", $valida[0]['id']);	            
 		            sessionController::set("email", $valida[0]['email']);	
 		            sessionController::set("username",$valida[0]['nombre']);            
-		            
-		            $logged=true;	           
+		              
+                    //$_SESSION["usuarioId"] = $valida[0]['id'];
+                
+		            $logged=true;
+                    echo json_encode(array(
+	                'status' => 'success',
+	                'message' => 'Bienvenido'
+	                ));
 	        }
 	        else {	            	            
 	             echo json_encode(array(

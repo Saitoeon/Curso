@@ -45,6 +45,11 @@
                       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
+                      <?php if(isset($usuario)){ 
+                            echo "Bienvenido ".$usuario;
+                      ?>
+                       <a href="index.php?op=logout">Cerrar sesión</a>
+                      <?php } ?>
                   </div>
                 </nav>                 
             </div>

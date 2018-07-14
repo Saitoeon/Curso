@@ -57,7 +57,7 @@ class m_usuarios{
             'apellidoMat'    => $data['apellidoMat'],
             'email'          => $data['email'],
             'usuario'          => $data['user'],
-            'contrasena'       => $data['pass']
+            'pass'       => $data['pass']
         ));
         
        return true;       

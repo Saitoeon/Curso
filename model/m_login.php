@@ -19,8 +19,8 @@ class m_login{
     {    
         $query = $this->db->select(
                         "SELECT *
-                         FROM usuarios                         
-                         WHERE email = :u AND password = :p",
+                         FROM cliente                         
+                         WHERE email = :u AND pass = :p",
                          array(
                            "u" => $username,
                            "p" => $password

@@ -5,7 +5,7 @@
  	
 
     $("#btn-login").click(function () {
-        var  user    = $("#login-username"),
+        var  user    = $("#login-email"),
              pass    = $("#login-password");
 
        //if(login.validateLogin(user, pass) === true) { 
@@ -36,10 +36,12 @@ login.loginUser = function (data) {
             action  : "logearse",
         },
         success: function (result) {           
-           if( result.status === 'success' )  
-               // window.location.href = result.page;             
-           else {
-               
+           if( result.status === 'success' ) { 
+                console.log("regresando de ajax");
+              //  window.location.href = result.page;             
+           }else {
+                               console.log("regresando de ERROR");
+
              //  utilerias.displayErrorMessage($("#errores"), result.message);
            }
 

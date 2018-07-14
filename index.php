@@ -2,13 +2,13 @@
 error_reporting(-1);
 ini_set('display_errors', 1);    
 
-//require_once("controller/sessionController.php");
+require_once("controller/sessionController.php");
 require_once("controller/loginController.php");
 require_once("controller/homeController.php");
 require_once("controller/usuariosController.php");
 
 
-// sessionController::startSession(); 
+sessionController::startSession(); 
 $login        = new loginController();
 $home        = new homeController();
 $user         = new usuariosController();
