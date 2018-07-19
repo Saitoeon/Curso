@@ -58,11 +58,10 @@ usuarios.addUser = function () {
 				},
 			success: function(result){
 				if(result.status == "error"){
-				//	utilerias.displayErrorServerMessage($("#mensajes-server"),result.message);
+					utilerias.displayErrorServerMessage($("#mensajes-server"),result.message);
 				}else {
-			//		$("#formulario-usuario :input").val('');
-				//	utilerias.displaySuccessMessage($("#mensajes-server"),result.message);
-			//		location.reload();
+					 window.location.href = "index.php?op=login";             
+					// location.reload();
 				}
 			}
 		});		

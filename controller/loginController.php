@@ -26,7 +26,7 @@ include_once("model/m_login.php");
 		}
 
 
-		public function login($username, $password)
+		public function login($email, $password)
 		{			
 
 			/*
@@ -43,31 +43,23 @@ include_once("model/m_login.php");
 	        
 	        //revisamos credenciales en bd
 	        */
-            $valida=$this->model->valida($username, $password);
+	        $newPass= md5($password."seguro".$email);
+	       // var_dump($newPass); die;
+            $valida=$this->model->valida($email, $newPass);
 	       	   
-	        if(count($valida) == 1) 
-	        {	 
-		            sessionController::set("usuarioId", $valida[0]['id']);	            
-		            sessionController::set("email", $valida[0]['email']);	
+	        if(count($valida) == 1) {	 
+		            sessionController::set("usuarioId", $valida[0]['id']); sessionController::set("email", $valida[0]['email']);
 		            sessionController::set("username",$valida[0]['nombre']);            
-		              
-                    //$_SESSION["usuarioId"] = $valida[0]['id'];
-                
-		            $logged=true;
-                    echo json_encode(array(
-	                'status' => 'success',
-	                'message' => 'Bienvenido'
-	                ));
-	        }
-	        else {	            	            
+		            echo json_encode(array(
+		                'status' => 'success',
+		                'message' => 'Loggeado'
+		             ));
+	        }else {	            	            
 	             echo json_encode(array(
 	                'status' => 'error',
-	                'message' => 'Usuario o contraseña incorrectos'
+	                'message' => 'Usuario y/o contraseña incorrectos'
 	             ));
-	            $logged=false;
 	        }
-
-		return $logged;
 		}
 
 

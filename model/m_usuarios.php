@@ -1,3 +1,4 @@
+
 <?php
 require_once("config/database.php");
 
@@ -51,7 +52,7 @@ class m_usuarios{
     
     public function nuevoUsuario($data)
     {             
-        $this->db->insert('cliente',  array (
+        return $this->db->insert('cliente',  array (
             'nombre'         => $data['nombre'], 
             'apellidoPat'    => $data['apellidoPat'],
             'apellidoMat'    => $data['apellidoMat'],
@@ -59,8 +60,7 @@ class m_usuarios{
             'usuario'          => $data['user'],
             'pass'       => $data['pass']
         ));
-        
-       return true;       
+              
     }
 
     /**

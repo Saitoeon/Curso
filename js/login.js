@@ -31,25 +31,24 @@ login.loginUser = function (data) {
         type: "POST",
         dataType: "json",
         data: {            
-            username: data.username,
+            email: data.username,
             password: data.password,
             action  : "logearse",
         },
-        success: function (result) {           
-           if( result.status === 'success' ) { 
-                console.log("regresando de ajax");
-              //  window.location.href = result.page;             
+        success: function (resultado) {           
+           if( resultado.status === 'success' ) { 
+                console.log("logeado");
+                location.reload();            
            }else {
-                               console.log("regresando de ERROR");
-
-             //  utilerias.displayErrorMessage($("#errores"), result.message);
+               console.log("regresando de ERROR");
+               utilerias.displayErrorMessage($("#errores"), resultado.message);
            }
 
         }
     });
 };
 
-/*
+
 login.validateLogin = function (un, pass) {
     var valid = true;
     var msg = "";
@@ -70,5 +69,3 @@ login.validateLogin = function (un, pass) {
 
     return valid;
 };
-
-*/

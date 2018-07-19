@@ -18,7 +18,7 @@ class UsuariosController {
 	public function index()
 	{ 
             require_once("views/templates/header.php");
-            require_once("views/registro.php");
+            require_once("views/usuarios.php");
             require_once("views/templates/footer.php");
 	}
     
@@ -35,11 +35,20 @@ class UsuariosController {
                 "message" => $message
             );
         }else{*/
-            $this->model->nuevoUsuario($postData);
-            $result = array(
-                "status"=> "success",
-                "message" => "Registro exitoso"
-            );
+            $newPass = md5($postData['pass']."seguro".$postData['email']);
+            $postData['pass'] = $newPass;
+            
+            if($this->model->nuevoUsuario($postData)){
+                $result = array(
+                    "status"=> "success",
+                    "message" => "Registro exitoso"
+                );
+            }else{
+                $result = array(
+                    "status"=> "error"
+                );
+            }
+            
        // }
         
         return $result;

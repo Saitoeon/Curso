@@ -20,15 +20,7 @@ $action = $_POST['action'];
 switch ($action) {
     case 'logearse':
         $login   = new loginController();
-        $logeado = $login->login($_POST['username'], $_POST['password']);
-
-        if ($logeado === true) {
-            echo json_encode(array(
-                'status' => 'success',
-                'page'   => 'index.php',
-            ));
-        }
-
+        $logeado = $login->login($_POST['email'], $_POST['password']);
         break;
 
     /* CRUD de Cliente  */

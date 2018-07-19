@@ -2,6 +2,7 @@
             <div class="col-sm-12">
                 <div class="registro">
                     <h1>¡Regístrate!</h1>
+                    <div id="mensajes-server"></div>
                     <form>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
