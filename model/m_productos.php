@@ -2,7 +2,7 @@
 <?php
 require_once("config/database.php");
 
-class m_usuarios{
+class m_productos{
 
     private $db = null;
 
@@ -31,17 +31,15 @@ class m_usuarios{
     * Obtiene un usuario por correo electrónico.
     * 
     **/
-    public function getUsuarioEmail($email){
+    public function getAllProductos(){
         $result = $this->db->select(
-            "SELECT * FROM cliente WHERE email = :email",
-            array("email" => $email));
+            "SELECT * FROM producto ORDER BY id ASC");
 
         if($result){
             return $result[0];
         }else{
-            return null;
+            return array();
         }
-
     }
 
     /**

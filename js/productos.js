@@ -1,9 +1,9 @@
-var programas = {};
+var productos = {};
 
 /**
 * se capturan los inputs de la vista
 **/
-programas.elementos = {
+productos.elementos = {
 	id_programa: $("#id-programa"),
 	nombre: $("#inputNombreProgramas"),
 	descripcion: $("#inputDescripcionProgramas"),
@@ -12,18 +12,18 @@ programas.elementos = {
 	btn_edit: $("#btn-edit"),
 	btn_delete: $("#btn-delete"),
 	msj_server: $("#mensajes-server"),
-	formulario: $("#formulario-programas"),
-	cont_datos: $("#datos-programas"),
+	formulario: $("#formulario-productos"),
+	cont_datos: $("#datos-productos"),
 };
 
 /**
 * Agregar un nuevo programa
 **/
-programas.add = function(){
-	var data = programas.elementos;
+productos.add = function(){
+	var data = productos.elementos;
 	var action = "addPrograma";
 
-	if(programas.validaDatos(data)){
+	if(productos.validaDatos(data)){
 		$.ajax({
 			type: "post",
 			url: "ajax.php",
@@ -37,7 +37,7 @@ programas.add = function(){
 				if(result.status == "error"){
 					utilerias.displayErrorServerMessage(data.msj_server,result.message);
 				}else{
-					$("#formulario-programas :input").val('');
+					$("#formulario-productos :input").val('');
 					utilerias.displaySuccessMessage(data.msj_server,result.message);
 					location.reload();
 				}
@@ -49,7 +49,7 @@ programas.add = function(){
 /**
 * Valida los valores del formulario
 **/
-programas.validaDatos = function(data){
+productos.validaDatos = function(data){
 	var valid = true;
 
 	utilerias.removeErrorMessages();
@@ -71,9 +71,9 @@ programas.validaDatos = function(data){
 * Funcion cuando se da clic en algun elemento de la tabla.
 * Permite visualizar la informacion en texto plano
 **/
-programas.verPrograma = function(idPrograma){
+productos.verPrograma = function(idPrograma){
 
-	var elem = programas.elementos;
+	var elem = productos.elementos;
 
 	utilerias.removeErrorMessages();
 	elem.id_programa.val(idPrograma);
@@ -113,8 +113,8 @@ programas.verPrograma = function(idPrograma){
 * Cuando se da click en el icono editar
 * Muestra los datos en el formulario
 **/
-programas.editPrograma = function(){
-	var elem = programas.elementos;
+productos.editPrograma = function(){
+	var elem = productos.elementos;
 	var idPrograma = elem.id_programa.val();
 
 	utilerias.removeErrorMessages();
@@ -134,7 +134,7 @@ programas.editPrograma = function(){
 				utilerias.displayErrorServerMessage(elem.msj_server, res.message);
 			}else{
 				//mostramos y ocultamos botones correspondientes
-				elem.btn_save.attr('onclick','programas.updatePrograma();');
+				elem.btn_save.attr('onclick','productos.updatePrograma();');
 				elem.btn_save.show();
 				elem.btn_edit.hide();
 				
@@ -151,12 +151,12 @@ programas.editPrograma = function(){
 /**
 * Funcion para actualizar los datos
 **/
-programas.updatePrograma = function(){
-	var elem = programas.elementos;
+productos.updatePrograma = function(){
+	var elem = productos.elementos;
 
 	var idPrograma = elem.id_programa.val();
 
-	if(programas.validaDatos(elem)){
+	if(productos.validaDatos(elem)){
 		$.ajax({
 			type: "post",
 			url: "ajax.php",
@@ -171,7 +171,7 @@ programas.updatePrograma = function(){
 				if(result.status == "error"){
 					utilerias.displayErrorServerMessage(elem.msj_server,result.message);
 				}else{
-					$("#formulario-programas :input").val('');
+					$("#formulario-productos :input").val('');
 					utilerias.displaySuccessMessage(elem.msj_server,result.message);
 					location.reload();					
 				}
@@ -185,8 +185,8 @@ programas.updatePrograma = function(){
 /**
 * Al pulsar el icono borrar, se ejecuta la funcion
 **/
-programas.deletePrograma = function(){
-	var elem = programas.elementos;
+productos.deletePrograma = function(){
+	var elem = productos.elementos;
 	var idPrograma = elem.id_programa.val();
 	var c = confirm('Estás seguro de realizar la operación?');
 	if(c){

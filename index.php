@@ -6,13 +6,14 @@ require_once("controller/sessionController.php");
 require_once("controller/loginController.php");
 require_once("controller/homeController.php");
 require_once("controller/usuariosController.php");
+require_once("controller/productoController.php");
 
 
 sessionController::startSession(); 
 $login        = new loginController();
 $home        = new homeController();
 $user         = new usuariosController();
-
+$producto   = new productoController();
 
 $option=isset($_REQUEST['op']) ?  $_REQUEST['op']: null;
 
@@ -21,18 +22,27 @@ $option=isset($_REQUEST['op']) ?  $_REQUEST['op']: null;
     case 'login':
       $login->index();
       break;
+
     case 'logout':
       $login->logout();
-    break;
+        break;
     
     case 'newUser':
     	$user->nuevoUsuario();
-    break;
+        break;
           
     case 'users':
     	$user->index();
-    break;
-          
+    	break;
+
+    case 'newProducto':
+        $producto->index();
+        break;
+
+    case 'productos':
+        $producto->getAllProductos();
+        break;
+
     default:    
         $home->index();
     break;

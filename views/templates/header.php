@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Tienda</title>
     <link rel="stylesheet" href="assets/css/home.css">
-      
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/registro.css">
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   </head>
   <body>
       
@@ -24,7 +25,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="ofertas.html">Ofertas</a>
+                        <a class="nav-link" href="index.php?op=productos">Productos</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="quienes.html">¿Quiénes somos?</a>
@@ -40,6 +41,9 @@
                           <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                       </li>
+                        <li class="nav-item">
+                            <a class="nav-link warning" href="index.php?op=users">¡Regístrate!</a>
+                        </li>
                     </ul>
                     <form class="form-inline my-2 my-sm-0">
                       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">

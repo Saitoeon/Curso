@@ -177,7 +177,7 @@ subprogramas.updateSubprograma = function(){
 				if(result.status == "error"){
 					utilerias.displayErrorServerMessage(elem.msj_server,result.message);
 				}else{
-					$("#formulario-programas :input").val('');
+					$("#formulario-productos :input").val('');
 					utilerias.displaySuccessMessage(elem.msj_server,result.message);
 					location.reload();					
 				}
