@@ -36,7 +36,7 @@ class m_productos{
             "SELECT * FROM producto ORDER BY id ASC");
 
         if($result){
-            return $result[0];
+            return $result;
         }else{
             return array();
         }
@@ -48,15 +48,15 @@ class m_productos{
     * @return true si logra guardar los datos
     **/
     
-    public function nuevoUsuario($data)
+    public function nuevoProducto($data)
     {             
         return $this->db->insert('cliente',  array (
             'nombre'         => $data['nombre'], 
-            'apellidoPat'    => $data['apellidoPat'],
-            'apellidoMat'    => $data['apellidoMat'],
-            'email'          => $data['email'],
-            'usuario'          => $data['user'],
-            'contrasena'       => $data['pass']
+            'descripcion'    => $data['apellidoPat'],
+            'precio'    => $data['apellidoMat'],
+            'peso'          => $data['email'],
+            'longitud'          => $data['user'],
+            'anchura'       => $data['pass']
         ));
               
     }

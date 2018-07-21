@@ -17,7 +17,7 @@
             <div class="col-sm-10 col-xs-12 col-lg-10 navDiv">
                 
                 <nav class="navbar navbar-expand-sm navbar-light">
-                  <a href="index.html"><img src="assets/img/red.png" class="logo"></a>
+                  <a href="index.php"><img src="assets/img/red.png" class="logo"></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -28,29 +28,34 @@
                         <a class="nav-link" href="index.php?op=productos">Productos</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="quienes.html">¿Quiénes somos?</a>
+                        <a class="nav-link" href="index.php?op=quienes">¿Quiénes somos?</a>
                       </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>
+                          <a class="dropdown-item" href="#">Hombres</a>
+                          <a class="dropdown-item" href="#">Mujeres</a>
                         </div>
                       </li>
                         <li class="nav-item">
-                            <a class="nav-link warning" href="index.php?op=users">¡Regístrate!</a>
+                          <?php if(isset($username)){
+                                if($usuarioId==1){
+                           ?>
+                            <a class="nav-link warning" href="index.php?op=newProducto">Agregar productos</a>
+                           <?php }
+                                }else{ ?> 
+                              <a class="nav-link warning" href="index.php?op=users">¡Regístrate!</a>
+                            <?php } ?>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-sm-0">
                       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
                     </form>
-                      <?php if(isset($usuario)){ 
-                            echo "Bienvenido ".$usuario;
+                      <?php if(isset($username)){ 
+                            echo "Bienvenido ".$username;
                       ?>
                        <a href="index.php?op=logout">Cerrar sesión</a>
                       <?php } ?>

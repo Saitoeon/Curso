@@ -2,6 +2,8 @@
 //require_once "controller/sessionController.php";
 require_once "controller/loginController.php";
 require_once "controller/usuariosController.php";
+require_once "controller/productoController.php";
+
 
 sessionController::startSession();
 
@@ -43,12 +45,11 @@ switch ($action) {
         $usuario = new usuariosController($_POST['usuarioId']);
         echo json_encode($usuario->deleteUsuario($_POST));
         break;
-    case 'getEvento':
-        $evento = new eventoController($_POST['eventoId'], null);
-        echo json_encode($evento->getEvento());
+
+    case 'addProducto':
+        $producto= new productoController();
+        echo json_encode($producto->nuevoProducto($_POST));
         break;
-
-
         
     default:
         break;

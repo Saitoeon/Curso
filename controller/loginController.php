@@ -63,31 +63,31 @@ include_once("model/m_login.php");
 		}
 
 
-	private function _validateLoginFields($username, $password)
-	 {    
-        $errors = array();
-        
-        if($username == "")
-            $errors[] = 'Introduce el Usuario';
-        
-        if($password == "")
-            $errors[] = "El Password es obligatorio";
-        
-        return $errors;
-    }
+		private function _validateLoginFields($username, $password)
+		 {    
+	        $errors = array();
+	        
+	        if($username == "")
+	            $errors[] = 'Introduce el Usuario';
+	        
+	        if($password == "")
+	            $errors[] = "El Password es obligatorio";
+	        
+	        return $errors;
+	    }
 
 
-    public function _isLoggedIn() {
-        if(sessionController::get("usuarioId") == null)
-        	return false;
-                
-        return true;        
-    }
+	    public function _isLoggedIn() {
+	        if(sessionController::get("usuarioId") == null)
+	        	return false;
+	                
+	        return true;        
+	    }
 
-     public function logout() {
-   		sessionController::destroySession();
-   		header('Location: index.php', TRUE, 302);       
-    }
+	     public function logout() {
+	   		sessionController::destroySession();
+	   		header('Location: index.php', TRUE, 302);       
+	    }
 
 
 	} // fin de clase

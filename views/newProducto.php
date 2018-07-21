@@ -3,7 +3,7 @@
         <div class="agregaProducto">
             <h1>Nuevo producto</h1>
             <div id="mensajes-server"></div>
-            <form>
+            <form id="myForm" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nombre</label>
                     <input type="text" class="form-control"  id="nombre" required>
@@ -39,11 +39,12 @@
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Imagen</label>
-                    <input type="text" class="form-control" placeholder="" id="imgProducto">
+                    <input type="file" class="form-control" placeholder="" id="imgUrl" name="imgUrl">
                 </div>
-
+                <button type="submit" class="btn btn-primary" id="btn-add-producto">Agregar</button>
             </form>
-            <button type="submit" class="btn btn-primary" id="btn-add-user" onclick="usuarios.addUser();">Entrar</button>
+
+
         </div>
     </div>
 </div>

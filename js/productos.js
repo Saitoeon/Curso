@@ -4,47 +4,48 @@ var productos = {};
 * se capturan los inputs de la vista
 **/
 productos.elementos = {
-	id_programa: $("#id-programa"),
-	nombre: $("#inputNombreProgramas"),
-	descripcion: $("#inputDescripcionProgramas"),
-	btn_add: $("#btn-add-programa"),
-	btn_save: $("#btn-save"),
-	btn_edit: $("#btn-edit"),
-	btn_delete: $("#btn-delete"),
-	msj_server: $("#mensajes-server"),
-	formulario: $("#formulario-productos"),
-	cont_datos: $("#datos-productos"),
+	nombre: $("#view-nombre-programa"),
+	descripcion: $("#descripcion"),
+	precio: $("#precio"),
+	peso: $("#peso"),
+	longitud: $("#longitud"),
+	anchura: $("#anchura"),
+	altura: $("#altura"),
+	stock: $("#stock"),
+	imagenUrl: $("#imgUrl"),
 };
 
 /**
 * Agregar un nuevo programa
 **/
-productos.add = function(){
+ $("#myForm").on('submit',(function() {
 	var data = productos.elementos;
-	var action = "addPrograma";
+	var action = "addProducto";
 
-	if(productos.validaDatos(data)){
+	console.log("pasaaa");
+	//if(productos.validaDatos(data)){
 		$.ajax({
 			type: "post",
 			url: "ajax.php",
-			dataType: "json",
 			data: {
-				nombre: data.nombre.val(),
-				descripcion: data.descripcion.val(),
-				action: action
-				},
+				action: "addProducto"
+			},
 			success: function(result){
 				if(result.status == "error"){
-					utilerias.displayErrorServerMessage(data.msj_server,result.message);
+					//utilerias.displayErrorServerMessage(data.msj_server,result.message);
+						console.log("error");
+
 				}else{
 					$("#formulario-productos :input").val('');
-					utilerias.displaySuccessMessage(data.msj_server,result.message);
+						console.log("aweb");
+
+					//utilerias.displaySuccessMessage(data.msj_server,result.message);
 					location.reload();
 				}
 			}
 		});
-	}
-};
+	//}
+}));
 
 /**
 * Valida los valores del formulario

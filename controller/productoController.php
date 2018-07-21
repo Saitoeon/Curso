@@ -11,12 +11,16 @@ class productoController {
     public function __construct() {
         //$this->userId = $userId;
         $this->model = new m_productos();
+
     }
 
 
 
     public function index()
     {
+
+        $usuarioId = sessionController::get("usuarioId");
+        $username = sessionController::get("username"); 
         require_once("views/templates/header.php");
         require_once("views/newProducto.php");
         require_once("views/templates/footer.php");
@@ -24,6 +28,7 @@ class productoController {
 
 
     public function nuevoProducto($postData){
+        var_dump($postData); exit();
         $result = array();
         //$errors = false; // $this->validaDatos($postData);
 
@@ -35,10 +40,13 @@ class productoController {
                  "message" => $message
              );
          }else{*/
-        $newPass = md5($postData['pass']."seguro".$postData['email']);
-        $postData['pass'] = $newPass;
 
-        if($this->model->nuevoUsuario($postData)){
+        $sourcePath = $_FILES['imagenUrl']['tmp_name'];       // Storing source path of the file in a variable
+       // $targetPath = "upload/".$_FILES['file']['name']; // Target path where file is to be stored
+        //move_uploaded_file($sourcePath,$targetPath) ;    // Moving Uploaded file
+
+        var_dump($postData, $sourcePath); exit();
+        if($this->model->nuevoProducto($postData)){
             $result = array(
                 "status"=> "success",
                 "message" => "Registro exitoso"
@@ -63,6 +71,9 @@ class productoController {
 
     public function getAllProductos()
     {
+
+        $usuarioId = sessionController::get("usuarioId");
+        $username = sessionController::get("username"); 
         $productos = $this->model->getAllProductos();
         require_once("views/templates/header.php");
         require_once("views/productos.php");
@@ -207,3 +218,9 @@ class productoController {
     }
 
 } // fin de clase
+
+
+if($_POST){
+    $producto= new productoController();
+    $producto->nuevoProducto($_POST);
+}

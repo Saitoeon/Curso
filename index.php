@@ -10,6 +10,7 @@ require_once("controller/productoController.php");
 
 
 sessionController::startSession(); 
+
 $login        = new loginController();
 $home        = new homeController();
 $user         = new usuariosController();
@@ -41,6 +42,9 @@ $option=isset($_REQUEST['op']) ?  $_REQUEST['op']: null;
 
     case 'productos':
         $producto->getAllProductos();
+        break;
+    case 'quienes':
+        $home->quienes();
         break;
 
     default:    
