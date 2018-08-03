@@ -7,3 +7,5 @@ extensiones requeridas
 php-xml
 php-gd
 php-mbstring
+"# Curso" 
+"# Curso" 

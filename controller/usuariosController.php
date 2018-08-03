@@ -3,7 +3,7 @@
 include_once("loginController.php");
 include_once("model/m_usuarios.php");
 
-class UsuariosController {
+class usuariosController {
 
 	private $userId;
 	public $model;

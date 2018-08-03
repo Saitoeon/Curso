@@ -9,11 +9,11 @@
             <div class="col-sm-3">
                 <h3>Servicio al cliente</h3>
                 <ul>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-                    <li><a href="#">Facturación electrónica</a></li>
-                    <li><a href="#">Promociones diversas y vigentes</a></li>
-                    <li><a href="#">Formas de pago</a></li>
-                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li class:"serv"><a href="#">Preguntas frecuentes</a></li>
+                    <li class:"serv"><a href="#">Facturación electrónica</a></li>
+                    <li class:"serv"><a href="#">Promociones diversas y vigentes</a></li>
+                    <li class:"serv"><a href="#">Formas de pago</a></li>
+                    <li class:"serv"><a href="#">Cambios y devoluciones</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -46,5 +46,6 @@
     <script type="text/javascript" src="js/productos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
   </body>
 </html>
